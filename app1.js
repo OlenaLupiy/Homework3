@@ -6,7 +6,7 @@ for (let i = 0; i< arr.length; i++){
 }
 console.log(multi);
 
- m= 1;
+ let m= 1;
 for(let i in arr){
     m*=arr[i];
 }
@@ -14,12 +14,12 @@ console.log(m);
 
 
 let count = 0;
-m=1;
+let m1=1;
 while (count<arr.length){
-    m*=arr[count];
+    m1*=arr[count];
     count++;
 }
-console.log(m);
+console.log(m1);
 
 //Task2
 
@@ -31,13 +31,13 @@ for (let i = 0; i<=15; i++){
 };
 
 //Task3
-function randArray (min, max){
-    return parseInt(min + Math.random() * (max-min))};
-    let arr1=[];
-    for (let i=0; i<5; i++){
-            arr1.push(randArray(1, 1500));
+function randArray (k){
+    const arr1=[];
+    for (let i=0; i<k; i++){
+        arr1[i] = Math.floor(Math.random()*500) +1
             }
-            console.log(arr1);
+            console.log(arr1);}
+            randArray(5);
 
 
 
@@ -67,28 +67,31 @@ findMin(3, 17, 9, 0.55, -7);
 
 function findUnique(A)
 {   
-    let n = A.length;
-    for (let i = 0; i < n-1; i++)
-     { for (let j = i+1; j < n; j++)
-        { if (A[i] === A[j]) return false; }
+   
+    for (let i = 0; i < A.length; i++){
+      for (let j = (i+1); j < A.log; j++){
+         if (A[i] === A[j]){ 
+             return false;
+             }
      }
-    return true;
 }
+return true;}
 console.log(findUnique([1, 2, 3]));
 console.log(findUnique([1, 2, 3, 1]))
 
-// Не працює, а чому - не розумію
-// function findUnique1(arr){
-//     for (let i =0; i<arr.length-1; i++)
-//     {
-//         for (let j = i+1; j<arr.length; j++){
-//         if (arr[i] === arr[j])
-//             return false;
-//         }
-//         return true;
-//     }
-// };
-//  console.log(findUnique1([1,2,3,2]));
+
+function findUnique1(arr){
+    for (let i =0; i<arr.length; i++)
+    {
+        for (let j = (i+1); j<arr.length; j++){
+        if (arr[i] === arr[j]){
+            return false;
+        }
+        }
+}
+return true;}
+ console.log(findUnique1([1,2,3,2]));
+
 // Task 7
  let arrReturn = [1, 2, 3, 4, 5, 6];
  function lastElem(arr)
@@ -110,20 +113,37 @@ console.log(getLastElem(array));    // 9
 console.log(getLastElem(array, 4)); // 6,7,8,9
 console.log(getLastElem(array, 12));       // 1,2,3,4,5,6,7,8,9
 
+//Task 7.2
+let array1 = [1,2,3,4,5,6,7,8,9];
+
+function getLastElem1(array1, n) {
+    if (n == null) {
+        console.log(array1.pop()); 
+    }   
+    else {
+        console.log(array1.slice(-n));
+    }
+}
+  
+
+console.log(getLastElem1(array1));    // 9
+console.log(getLastElem1(array1, 4)); // 6,7,8,9
+console.log(getLastElem1(array1, 12));       // 1,2,3,4,5,6,7,8,9
+
 
 // Task 8
 
 
 
-function CapitalLetter(str){
-    let arr = str.split(' ');    
+function CapitalLetter(str)
+{
+    let arr = str.split(' ');  
+    let newarr = [];
+
   for(let i = 0; i< arr.length; i++) 
   {
-     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-  }
-     let result = arr.join(' '); 
-     console.log(result);
+     newarr.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1));
     }
-    
-CapitalLetter('i love java script'); 
-
+       return newarr.join(' ');
+     }
+     console.log(CapitalLetter('i love java script'))
